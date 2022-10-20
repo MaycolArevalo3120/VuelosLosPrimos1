@@ -1,0 +1,25 @@
+<div class="plane">
+  <div class="cockpit">
+    <h1>Selecci&oacute;n de asientos</h1>
+  </div>
+  <div class="exit exit--front fuselage"></div>
+
+
+  <!---------------------------------asientos--------------------------------------->
+  <Form action="">
+  <ol class="cabin fuselage"  class="form-group">
+    <li *ngFor="let f of Filas" class="row row--1">
+      <ol class="seats">
+        <li *ngFor="let c of Columna"
+          [ngClass]="{'clase1': estadoAsiento[f-1][c-1] == 1, 'clase2': estadoAsiento[f-1][c-1] == 0}">
+          <input type="checkbox" id={{crearID(f.toString(),c.toString())}} [checked]="estadoAsiento[f-1][c-1] == 1"
+            (click)="guardarEstadoAsiento($event)" (click)="SeleccionCheck((f-1),(c-1))" />
+          <label for={{crearID(f.toString(),c.toString())}}>{{crearID(f.toString(),c.toString())}}</label>
+        </li>
+      </ol>
+  </ol>
+ <button (click)="GuardarSeleccioestadoAsiento()" class="btn btn-danger" style="margin-top: 10px;">Guardar Asiento</button>
+  <div class="exit exit--back fuselage">
+  </div>
+  </Form>
+</div>

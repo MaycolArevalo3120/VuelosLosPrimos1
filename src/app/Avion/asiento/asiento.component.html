@@ -1,0 +1,25 @@
+<div class="plane">
+    <div class="cockpit">
+        <h1>Asientos de Andy</h1>
+    </div>
+    <div class="exit exit--front fuselage">
+    </div>
+
+
+    <ol class="cabin fuselage" style="text-align: center">
+        <li *ngFor="let fila of filas; let f=index" class="row row--1">
+            <ol class="seats" type="A">
+                <li *ngFor="let columna of columnas; let c=index" class="seat">
+                    <input type="checkbox" id={{crearID(f.toString(),c.toString())}} [checked]="false"/>
+                    <label for={{crearID(f.toString(),c.toString())}}>{{crearID(f.toString(),c.toString())}}</label>
+                </li>
+            </ol>
+        </li>
+    </ol>
+
+    <div class="exit exit--back fuselage">
+
+    </div>
+
+    <button (click)="Guardar()"  class="btn btn-danger" style="margin-top: 10px;">Guardar</button>
+</div>
