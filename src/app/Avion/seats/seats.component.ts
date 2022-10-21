@@ -29,27 +29,17 @@ export class SeatsComponent implements OnInit {
   ngOnInit(): void {
     this.serviceAsiento.getAvion().subscribe(data => {
       this.avion = data;
-      //console.log(this.avion[1])
       this.numeroFilas = parseInt(this.avion[2].filas.toString())
       this.numeroColumnas = parseInt(this.avion[2].columnas.toString())
       this.ingresoDeFilasColumas()
       this.estadoAsiento = Array.from(Array(this.numeroFilas), () => new Array(this.numeroColumnas).fill(0))
       this.asientosPreCargados()
-      //console.log(this.elementosAvion)
-
+     
     })
   }
 
 
   asientosPreCargados() {
-
-    /* this.estadoAsiento[1][2] = 1
-     this.estadoAsiento[1][5] = 1
-     this.estadoAsiento[2][4] = 1
-     this.estadoAsiento[6][2] = 1
-     this.estadoAsiento[4][2] = 1*/
-   /* this.estadoAsiento[0][0] = 1
-    this.estadoAsiento[9][3] = 1*/
     this.serviceAsiento.getAsientosAvionSeleccionados(this.idAvion_Asiento)
       .subscribe(data => {
         this.asientoSelect = data;
@@ -88,9 +78,7 @@ export class SeatsComponent implements OnInit {
   }
 
   guardarEstadoAsiento(evento: any) {
-    // console.log(evento.srcElement.id)
     this.cambiarEstadoAsiento(evento.srcElement.id)
-    //console.log(this.estadoAsiento)
   }
 
   cambiarEstadoAsiento(idasiento: any) {
@@ -121,7 +109,7 @@ export class SeatsComponent implements OnInit {
     // console.log(this.asiento.nombre)
     this.serviceAsiento.CrearAsiento(this.asiento)
       .subscribe(data => {
-        alert("se agrego asiento");
+       // alert("se agrego asiento");
         this.router.navigate(["seats"])
       })
 
@@ -130,11 +118,12 @@ export class SeatsComponent implements OnInit {
   asiento: Asiento = new Asiento();
   Guardar(fila: String, columna: String) {
     this.asiento = new Asiento();
-    this.asiento.idAvion = this.idAvion_Asiento//this.elementosAvion.idavion; // g.idavion;
+    this.asiento.idAvion = this.idAvion_Asiento;//this.elementosAvion.idavion; // g.idavion;
     this.asiento.fila = fila;
     this.asiento.columna = columna;
     this.asiento.idestadoregistroTabla = 1;
     console.warn(this.asiento)
+    debugger;
     this.serviceAsiento.CrearAsiento(this.asiento)
       .subscribe(data => {
         // alert("se agrego asiento");
@@ -143,22 +132,14 @@ export class SeatsComponent implements OnInit {
   }
 
   AsientosSeleccionados() {
-    //console.log(this.estadoAsiento)
-    //debugger;
-    //console.log("linea 115")
-    //fila
     for (let f = 0; f < this.estadoAsiento.length; f++) {
       //console.log("linea 117")
       //columna
       for (let c = 0; c < this.estadoAsiento[f].length; c++) {
         //console.log("linea 119")
-        if (this.estadoAsiento[f][c] == 1) {
-          console.log("entro al if")
-          console.log(this.estadoAsiento[f][c])
+        if (this.estadoAsiento[f][c] == 1) {  
           this.Guardar(f.toString(), c.toString())
-
         }
-
       }
     }
   }
