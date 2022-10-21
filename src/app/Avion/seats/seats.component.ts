@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Avion } from 'src/app/Model/Avion'; //revisar
 import { Asiento } from '../../Model/Asiento';//revisar
 import { ServiceService } from 'src/app/Service/service.service';//revisa
@@ -18,8 +18,14 @@ export class SeatsComponent implements OnInit {
   isDisabled!: Boolean;
 
   asientoSelect!: Asiento[];
- 
-  constructor(private serviceAsiento: ServiceService, private router: Router) { }
+  idAvion_Asiento!:number;
+  constructor(private serviceAsiento: ServiceService, private router: Router, private activatedRoute: ActivatedRoute) { 
+
+    this.activatedRoute.paramMap.subscribe(params => {
+          this.idAvion_Asiento = Number(params.get('idAvion') as string);
+        })
+
+  }
   ngOnInit(): void {
     this.serviceAsiento.getAvion().subscribe(data => {
       this.avion = data;
@@ -44,7 +50,7 @@ export class SeatsComponent implements OnInit {
      this.estadoAsiento[4][2] = 1*/
    /* this.estadoAsiento[0][0] = 1
     this.estadoAsiento[9][3] = 1*/
-    this.serviceAsiento.getAsientosAvionSeleccionados(2)
+    this.serviceAsiento.getAsientosAvionSeleccionados(this.idAvion_Asiento)
       .subscribe(data => {
         this.asientoSelect = data;
       
@@ -124,7 +130,7 @@ export class SeatsComponent implements OnInit {
   asiento: Asiento = new Asiento();
   Guardar(fila: String, columna: String) {
     this.asiento = new Asiento();
-    this.asiento.idAvion = 2//this.elementosAvion.idavion; // g.idavion;
+    this.asiento.idAvion = this.idAvion_Asiento//this.elementosAvion.idavion; // g.idavion;
     this.asiento.fila = fila;
     this.asiento.columna = columna;
     this.asiento.idestadoregistroTabla = 1;
@@ -134,8 +140,6 @@ export class SeatsComponent implements OnInit {
         // alert("se agrego asiento");
         //this.router.navigate(["seats"])
       })
-
-
   }
 
   AsientosSeleccionados() {

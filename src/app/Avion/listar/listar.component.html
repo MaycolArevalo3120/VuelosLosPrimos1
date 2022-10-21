@@ -26,9 +26,8 @@
                         <td>{{avion.usuariomodificacion}}</td>
                         <td>{{avion.fechamodificacion}}</td>
                         <td>
-                            <button class="btn btn-warning" style="margin-left: 10px;">Editar</button>
-                            <!-- <button class="btn btn-danger"style="margin-left: 10px;">Eliminar</button> -->
-                            <button class="btn btn-info"style="margin-left: 10px;">Asiento</button>
+                        
+                            <button (click)="selectAsiento(avion.idavion)" class="btn btn-info"style="margin-left: 10px;">Asiento</button>
                         </td>
                     </tr>
                 </tbody>
