@@ -7,6 +7,7 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
+                        <th>Ide</th>
                         <th>Nombre</th>
                         <th>Filas</th>
                         <th>Columnas</th>
@@ -18,6 +19,7 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let avion of aviones" class="text-right">
+                        <td>{{avion.idavion}}</td>
                         <td>{{avion.nombre}}</td>
                         <td>{{avion.filas}}</td>
                         <td>{{avion.columnas}}</td>
@@ -25,10 +27,7 @@
                         <td>{{avion.fechacreacion}}</td>
                         <td>{{avion.usuariomodificacion}}</td>
                         <td>{{avion.fechamodificacion}}</td>
-                        <td>
-                        
-                            <button (click)="selectAsiento(avion.idavion)" class="btn btn-info"style="margin-left: 10px;">Seleccionar Asiento</button>
-                        </td>
+                
                     </tr>
                 </tbody>
             </table>

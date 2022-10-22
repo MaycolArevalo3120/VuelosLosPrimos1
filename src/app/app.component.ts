@@ -21,7 +21,9 @@ export class AppComponent {
   crearVuelo(){
     this.router.navigate(["vuelo"]);
   }
-
+  listarVuelo(){
+    this.router.navigate(["listarVuelo"]);
+  }
   editar(){
     this.router.navigate(["editar"]);
   }

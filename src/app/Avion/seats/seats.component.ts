@@ -24,14 +24,14 @@ export class SeatsComponent implements OnInit {
   numeroColumnas!: number;
   constructor(private serviceAsiento: ServiceService, private router: Router, private activatedRoute: ActivatedRoute) {
 
-    this.activatedRoute.paramMap.subscribe(params => {
+    this.activatedRoute.paramMap.subscribe((params:any) => {
       this.idAvion_Asiento = Number(params.get('idAvion') as string);
 
     })
     this.ngOnInit()
   }
   ngOnInit(): void {
-    this.serviceAsiento.getAvion().subscribe(data => {
+    this.serviceAsiento.getAvion().subscribe((data:any) => {
       this.avion = data;
       //this.numeroFilas = //parseInt(this.avion[2].filas.toString())
       //this.numeroColumnas =6// parseInt(this.avion[2].columnas.toString())
@@ -48,7 +48,7 @@ export class SeatsComponent implements OnInit {
 
   asientosPreCargados() {
     this.serviceAsiento.getAsientosAvionSeleccionados(this.idAvion_Asiento)
-      .subscribe(data => {
+      .subscribe((data:any) => {
         this.asientoSelect = data;
 
         console.warn("data ", this.asientoSelect)
@@ -108,7 +108,7 @@ export class SeatsComponent implements OnInit {
     this.asiento.fila = this.asiento.fila
     // console.log(this.asiento.nombre)
     this.serviceAsiento.CrearAsiento(this.asiento)
-      .subscribe(data => {
+      .subscribe((data:any) => {
         // alert("se agrego asiento");
         this.router.navigate(["seats"])
       })
@@ -129,7 +129,7 @@ export class SeatsComponent implements OnInit {
 
     console.warn(this.asiento)
     this.serviceAsiento.CrearAsiento(this.asiento)
-      .subscribe(data => {
+      .subscribe((data:any) => {
         // alert("se agrego asiento");
         //this.router.navigate(["seats"])
       })
@@ -156,10 +156,10 @@ export class SeatsComponent implements OnInit {
 
   CargarFilaColumnaxidAvion() {
 
-    this.serviceAsiento.getListadoAvionXId(this.idAvion_Asiento).subscribe(resultado => {
-      console.warn(resultado);
-      if (resultado != undefined) {
-        this.FilaColumnaAvion = resultado;
+  this.serviceAsiento.getListadoAvionXId(this.idAvion_Asiento).subscribe((resultado:any) => {
+     console.warn(resultado);
+     if (resultado != undefined) {
+       this.FilaColumnaAvion = resultado;
 
         /*for (let i = 0; i < resultado.length; i++) {
           this.numeroFilas = Number(resultado[i].filas)
@@ -178,21 +178,6 @@ export class SeatsComponent implements OnInit {
       }
     })
 
-    /*  .subscribe(data => {
-       this.FilaColumnaAvion = data;
-
-
-       for (let i = 0; i < this.FilaColumnaAvion.length; i++) {
-
-         this.numeroFilas = Number(this.FilaColumnaAvion[i].filas)
-         this.numeroColumnas = Number(this.FilaColumnaAvion[i].columnas)
-         this.Filas = Array.from({ length: this.numeroFilas }, (_, i) => i + 1)
-         this.Columna = Array.from({ length: this.numeroColumnas }, (_, i) => i + 1)
-         
-       }
-     }
-     
-     )*/
   }
 
 

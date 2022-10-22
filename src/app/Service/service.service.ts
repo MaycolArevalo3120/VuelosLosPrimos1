@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Avion } from '../Model/Avion';
 import { Asiento } from '../Model/Asiento';
 import { Tripulacion } from '../Model/Tripulacion';
+import { Vuelo } from '../Model/Vuelo';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,10 @@ export class ServiceService {
 
   crearAvion(avion: Avion) {
     return this.http.post<Avion>('http://localhost:8099/api/asientopasajero/crearAvion', avion);
+  }
+
+  crearVuelo(vuelo: Vuelo) {
+    return this.http.post<Vuelo>('http://localhost:8099/api/vuelo/postVuelo', vuelo);
   }
 
   getAerolineas() {
@@ -45,6 +50,10 @@ export class ServiceService {
 
   getTripulacion() {
     return this.http.get<Tripulacion[]>('http://localhost:8099/api/tripulacion/getListaTripulacion')
+  }
+
+  getVuelos(){
+    return this.http.get<Vuelo[]>('http://localhost:8099/api/vuelo/getListaVuelo')
   }
 
 

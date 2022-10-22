@@ -8,6 +8,7 @@ import { SeatsComponent } from './Avion/seats/seats.component';
 import { VueloComponent } from './Avion/vuelo/vuelo.component';
 import { TripulacionComponent } from './Avion/tripulacion/tripulacion.component';
 import { ListarTripulacionComponent } from './Avion/tripulacion/listar-tripulacion/listar-tripulacion.component';
+import { ListarVueloComponent } from './Avion/listar-vuelo/listar-vuelo.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
 {path:'seats/:idAvion', component:SeatsComponent},
 {path:'vuelo', component:VueloComponent},
 {path:'tripulacion', component:TripulacionComponent},
-{path:'listadoTripulacion', component:ListarTripulacionComponent}
+{path:'listadoTripulacion', component:ListarTripulacionComponent},
+{path:'listarVuelo', component:ListarVueloComponent}
 //{path:'listadoTripulacion', component:ListarTripulacionComponent},
 ];
 

@@ -9,7 +9,7 @@
           <div >
             <form [formGroup]="tripFormGroup">
               <select class="form-select" aria-label="Default select example"  formControlName="selectAvion">
-                <option [value]="avion" *ngFor="let avion of aviones">{{avion.nombre}}</option>
+                <option #idavion [value]="avion.idavion" *ngFor="let avion of aviones" id="{{avion.idavion}}">{{avion.nombre}}</option>
               </select>
             </form>
            
@@ -20,7 +20,7 @@
             <form [formGroup]="tripFormGroup">
               <select class="form-select" id="selectTripulante" aria-label="Default select example" formControlName="selectTripulante">
                 <option selected>Open this select tripulante</option>
-                <option [value]="trip.nombre" *ngFor="let trip of tripulanteSelect">{{trip.nombre}}</option>
+                <option  *ngFor="let trip of tripulanteSelect" [value]="trip.idtripulante">{{trip.nombre}}</option>
               </select>
             </form>
            
@@ -45,7 +45,7 @@
               </thead>
               <tbody>
                 <tr *ngFor="let avion of tripulantes" class="text-right">
-                  <td>{{avion.idTripulante}}</td>
+                  <td>{{avion.idtripulante}}</td>
                   <td>{{avion.nombre}}</td>
                   <td>{{avion.puesto}}</td>
                   <td>
@@ -58,38 +58,38 @@
   
           <div class="form-group">
             <label for="">Fecha de Salida</label>
-            <input #nombre type="date" class="form-control">
+            <input #fechasalida type="date" class="form-control">
           </div>
           <div class="form-group">
             <label for="">Hora de Salida</label>
-            <input #nombre type="datetime" class="form-control">
+            <input #horasalida type="datetime" class="form-control">
           </div>
           <div class="form-group">
             <label for="">Fecha de Llegada</label>
-            <input #filas type="date" class="form-control">
+            <input #fechallegada type="date" class="form-control">
           </div>
           <div class="form-group">
             <label for="">Hora de Llegada</label>
-            <input #nombre type="datetime" class="form-control">
+            <input #horallegada type="datetime" class="form-control">
           </div>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="">Numero de Pasajeros</label>
-            <input #columnas type="number" class="form-control">
-          </div>
+            <input #pasajeros type="number" class="form-control">
+          </div> -->
           <div class="form-group">
             <label for="">Precio Boleto</label>
-            <input #columnas type="number" class="form-control">
+            <input #precio type="number" class="form-control">
           </div>
           <div class="form-group">
             <label for="">AereoPuerto Entrada</label>
-            <input #columnas type="text" class="form-control">
+            <input #aeropuetoEntrada type="text" class="form-control">
           </div>
            <div class="form-group">
             <label for="">AereoPuerto Salida</label>
-            <input #columnas type="text" class="form-control">
+            <input #aeropuertosalida type="text" class="form-control">
           </div>
   
-          <button class="btn btn-danger" (click)="GuardarVuelo()" style="margin-top: 10px;">Guardar</button>
+          <button class="btn btn-danger" (click)="GuardarVuelo(fechasalida.value,horasalida.value,fechallegada.value,horallegada.value,precio.value,aeropuetoEntrada.value,aeropuertosalida.value)" style="margin-top: 10px;">Guardar</button>
         </form>
       </div>
     </div>

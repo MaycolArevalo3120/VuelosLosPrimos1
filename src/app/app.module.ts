@@ -12,9 +12,9 @@ import { AsientoComponent } from './Avion/asiento/asiento.component';
 import { SeatsComponent } from './Avion/seats/seats.component'
 import { MatSelectModule } from '@angular/material/select';
 import { VueloComponent } from './Avion/vuelo/vuelo.component';
-import { SeatsComponent } from './Avion/seats/seats.component';
 import { TripulacionComponent } from './Avion/tripulacion/tripulacion.component';
 import { ListarTripulacionComponent } from './Avion/tripulacion/listar-tripulacion/listar-tripulacion.component';
+import { ListarVueloComponent } from './Avion/listar-vuelo/listar-vuelo.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +25,8 @@ import { ListarTripulacionComponent } from './Avion/tripulacion/listar-tripulaci
     SeatsComponent,
     VueloComponent,
     TripulacionComponent,
-    ListarTripulacionComponent
+    ListarTripulacionComponent,
+    ListarVueloComponent
   ],
   imports: [
     BrowserModule,
