@@ -37,13 +37,6 @@ export class ServiceService {
     return this.http.get<Asiento[]>(`http://localhost:8099/api/asientopasajero/getAsientoPasajeroxAvion?IdAvion=${idAvion}`)
   }
 
-  crearTripulacion(tripulacion: Tripulacion) {
-    return this.http.post<Tripulacion>('http://localhost:8099/api/tripulacion/crearTripulacion', tripulacion);
-  }
-
-  getTripulacion() {
-    return this.http.get<Tripulacion[]>('http://localhost:8099/api/tripulacion/getListaTripulacion')
-  }
 
 
 }
