@@ -1,0 +1,97 @@
+<div class="container col-md-6" style="margin-top: 10px;">
+    <div class="card">
+      <div class="card-header">
+        <h3>Agregar Vuelo</h3>
+      </div>
+      <div class="card-body">
+  
+        <form action="">
+          <div >
+            <form [formGroup]="tripFormGroup">
+              <select class="form-select" aria-label="Default select example"  formControlName="selectAvion">
+                <option [value]="avion" *ngFor="let avion of aviones">{{avion.nombre}}</option>
+              </select>
+            </form>
+           
+  
+          </div>
+          <br>
+          <div >
+            <form [formGroup]="tripFormGroup">
+              <select class="form-select" id="selectTripulante" aria-label="Default select example" formControlName="selectTripulante">
+                <option selected>Open this select tripulante</option>
+                <option [value]="trip.nombre" *ngFor="let trip of tripulanteSelect">{{trip.nombre}}</option>
+              </select>
+            </form>
+           
+        
+            <br>
+            <button type="button" class="btn btn-primary" (click)="GurdarTripulante() ">Agregar Tripulante</button>
+            <br>
+            <br>
+            <table class="table table-hover">
+              <thead>
+              <tr>
+                <th>
+                  id Tripulante
+                </th>
+                <th>
+                  Nombre Tripulante
+                </th>
+                <th>
+                  Puesto
+                </th>
+              </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let avion of tripulantes" class="text-right">
+                  <td>{{avion.idTripulante}}</td>
+                  <td>{{avion.nombre}}</td>
+                  <td>{{avion.puesto}}</td>
+                  <td>
+                      <button (click)="Eliminar(avion)"  class="btn btn-info"style="margin-left: 10px;">Eliminar</button>
+                  </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+  
+          <div class="form-group">
+            <label for="">Fecha de Salida</label>
+            <input #nombre type="date" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="">Hora de Salida</label>
+            <input #nombre type="datetime" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="">Fecha de Llegada</label>
+            <input #filas type="date" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="">Hora de Llegada</label>
+            <input #nombre type="datetime" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="">Numero de Pasajeros</label>
+            <input #columnas type="number" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="">Precio Boleto</label>
+            <input #columnas type="number" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="">AereoPuerto Entrada</label>
+            <input #columnas type="text" class="form-control">
+          </div>
+           <div class="form-group">
+            <label for="">AereoPuerto Salida</label>
+            <input #columnas type="text" class="form-control">
+          </div>
+  
+          <button class="btn btn-danger" (click)="GuardarVuelo()" style="margin-top: 10px;">Guardar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
