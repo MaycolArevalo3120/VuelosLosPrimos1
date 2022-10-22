@@ -18,6 +18,9 @@ export class AppComponent {
   Nuevo(){
     this.router.navigate(["agregar"]);
   }
+  crearVuelo(){
+    this.router.navigate(["vuelo"]);
+  }
 
   editar(){
     this.router.navigate(["editar"]);
