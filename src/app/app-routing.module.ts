@@ -6,6 +6,9 @@ import { EditarComponent } from './Avion/editar/editar.component';
 import { AsientoComponent } from './Avion/asiento/asiento.component';
 import { SeatsComponent } from './Avion/seats/seats.component';
 import { VueloComponent } from './Avion/vuelo/vuelo.component';
+import { TripulacionComponent } from './Avion/tripulacion/tripulacion.component';
+import { ListarTripulacionComponent } from './Avion/tripulacion/listar-tripulacion/listar-tripulacion.component';
+
 
 const routes: Routes = [
 {path:'listar', component:ListarComponent},
@@ -13,8 +16,10 @@ const routes: Routes = [
 {path:'editar', component:EditarComponent},
 {path:'asiento', component:AsientoComponent},
 {path:'seats/:idAvion', component:SeatsComponent},
-{path:'vuelo', component:VueloComponent}
-
+{path:'vuelo', component:VueloComponent},
+{path:'tripulacion', component:TripulacionComponent},
+{path:'listadoTripulacion', component:ListarTripulacionComponent}
+//{path:'listadoTripulacion', component:ListarTripulacionComponent},
 ];
 
 @NgModule({

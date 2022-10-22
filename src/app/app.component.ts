@@ -33,4 +33,11 @@ export class AppComponent {
   asientoMaycol(){
     this.router.navigate(["seats"]);
   }
+
+  tripulacion(){
+    this.router.navigate(["tripulacion"]);
+  }
+  listadoTripulacion(){
+    this.router.navigate(["listadoTripulacion"]);
+  }
 }
