@@ -12,8 +12,9 @@ import{FormsModule}from '@angular/forms'
 import{ServiceService} from '../app/Service/service.service'
 import{HttpClientModule} from '@angular/common/http';
 import { AsientoComponent } from './Avion/asiento/asiento.component';
-import { SeatsComponent } from './Avion/seats/seats.component'
-
+import { SeatsComponent } from './Avion/seats/seats.component';
+import { TripulacionComponent } from './Avion/tripulacion/tripulacion.component';
+import { ListarTripulacionComponent } from './Avion/tripulacion/listar-tripulacion/listar-tripulacion.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,9 @@ import { SeatsComponent } from './Avion/seats/seats.component'
     AgregarComponent,
     EditarComponent,
     AsientoComponent,
-    SeatsComponent
+    SeatsComponent,
+    TripulacionComponent,
+    ListarTripulacionComponent
   ],
   imports: [
     BrowserModule,

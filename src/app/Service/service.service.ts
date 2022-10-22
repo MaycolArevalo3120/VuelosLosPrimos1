@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Avion } from '../Model/Avion';
 import { Asiento } from '../Model/Asiento';
+import { Tripulacion } from '../Model/Tripulacion';
 
 @Injectable({
   providedIn: 'root'
@@ -34,10 +35,6 @@ export class ServiceService {
   }
   getAsientosAvionSeleccionados(idAvion: number) {
     return this.http.get<Asiento[]>(`http://localhost:8099/api/asientopasajero/getAsientoPasajeroxAvion?IdAvion=${idAvion}`)
-  }
-
-  getListadoAvionXId(idAvion:number){
-    return this.http.get<Avion[]>(`http://localhost:8099/api/avion/getListadoAvionXId?IdAvion=${idAvion}`)
   }
 
 }

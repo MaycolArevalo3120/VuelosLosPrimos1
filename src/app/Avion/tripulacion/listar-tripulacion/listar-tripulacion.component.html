@@ -1,0 +1,33 @@
+<div class="container" style="margin-top: 10px;" >
+    <div class="card">
+        <div class="card-header">
+            <h3>Aviones</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Puesto</th>
+                        <th>Columnas</th>
+                        <th>Creado por</th>
+                        <th>fecha de creaci&oacute;n</th>
+                        <th>Modificado por</th>
+                        <th>Fecha de modificaci&oacute;n</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let tripulacion of tripulantes" class="text-right">
+                        <td>{{tripulacion.nombre}}</td>
+                        <td>{{tripulacion.puesto}}</td>
+                        <td>{{tripulacion.estado}}</td>
+                        <td>{{tripulacion.usuariocreacion}}</td>
+                        <td>{{tripulacion.fechacreacion}}</td>
+                        <td>{{tripulacion.usuariomodificacion}}</td>
+                        <td>{{tripulacion.fechamodificacion}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
