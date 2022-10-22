@@ -36,4 +36,8 @@ export class ServiceService {
     return this.http.get<Asiento[]>(`http://localhost:8099/api/asientopasajero/getAsientoPasajeroxAvion?IdAvion=${idAvion}`)
   }
 
+  getListadoAvionXId(idAvion:number){
+    return this.http.get<Avion[]>(`http://localhost:8099/api/avion/getListadoAvionXId?IdAvion=${idAvion}`)
+  }
+
 }

@@ -11,7 +11,7 @@ const routes: Routes = [
 {path:'agregar',component:AgregarComponent},
 {path:'editar', component:EditarComponent},
 {path:'asiento', component:AsientoComponent},
-{path:'seats', component:SeatsComponent}
+{path:'seats/:idAvion', component:SeatsComponent}
 
 ];
 

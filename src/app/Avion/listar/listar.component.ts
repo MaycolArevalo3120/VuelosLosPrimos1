@@ -20,4 +20,12 @@ export class ListarComponent implements OnInit {
     })
   }
 
+
+  selectAsiento(idAvione:number){
+  //  this.router.navigate(["seats"]);
+
+    this.router.navigate(['seats',idAvione] )
+
+  }
+
 }

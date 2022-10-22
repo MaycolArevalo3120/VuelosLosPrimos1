@@ -21,6 +21,10 @@ export class AgregarComponent implements OnInit {
    this.avion.nombre=nombre;
    this.avion.filas=filas;
    this.avion.columnas=columnas;
+   this.avion.idestadoavion=1;
+   this.avion.usuariocreacion="andy";
+   this.avion.idmodelo=1;
+   this.avion.idestadoregistrotabla=1;
 
     this.service.crearAvion(this.avion)
     .subscribe(data=>{
